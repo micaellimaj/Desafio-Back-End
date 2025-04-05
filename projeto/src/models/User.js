@@ -35,3 +35,20 @@ module.exports = (sequelize, DataTypes) => {
   
     return User;
   };
+
+  // Tag.js
+module.exports = (sequelize, DataTypes) => {
+  const Tag = sequelize.define('Tag', {
+      // campos da tag...
+  });
+  
+  Tag.associate = (models) => {
+      Tag.belongsToMany(models.Item, {
+          through: 'ItemTag',
+          foreignKey: 'tagId',
+          as: 'items'
+      });
+  };
+  
+  return Tag;
+};

@@ -1,19 +1,22 @@
-const { Sequelize } = require('sequelize');
-const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
+// src/config/db.js
+require('dotenv').config();
 
-const sequelize = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASSWORD,
-  {
-    host: process.env.DB_HOST,
+const { Sequelize, DataTypes } = require('sequelize');
+
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+    host: process.env.DB_HOST || 'localhost',
     dialect: 'postgres',
+    logging: console.log,
     dialectOptions: {
-      ssl: process.env.DB_SSL === 'true' ? { require: true } : false
+        ssl: {
+            require: true,
+            rejectUnauthorized: false
+        }
     },
-    logging: false // desative os logs em produção
-  }
-);
+    define: {
+        timestamps: true,
+        freezeTableName: true
+    }
+});
 
 module.exports = sequelize;

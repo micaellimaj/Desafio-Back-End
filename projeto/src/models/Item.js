@@ -1,24 +1,44 @@
 // models/Item.js
 module.exports = (sequelize, DataTypes) => {
   const Item = sequelize.define('Item', {
-    name: DataTypes.STRING,
-    description: DataTypes.TEXT,
-    image_url: DataTypes.STRING
+      name: {
+          type: DataTypes.STRING,
+          allowNull: false,
+          validate: {
+              notEmpty: true
+          }
+      },
+      description: {
+          type: DataTypes.TEXT,
+          allowNull: true
+      },
+      image_url: {
+          type: DataTypes.STRING,
+          allowNull: true,
+          validate: {
+              isUrl: true
+          }
+      }
+  }, {
+      timestamps: true,
+      paranoid: true,
+      freezeTableName: true,
+      tableName: 'items'
   });
-  
-    Item.associate = (models) => {
+
+  Item.associate = (models) => {
       Item.belongsToMany(models.User, {
-        through: 'ItemUser',
-        foreignKey: 'item_id',
-        as: 'users'
+          through: 'ItemUser',
+          foreignKey: 'itemId',
+          as: 'users'
       });
       
       Item.belongsToMany(models.Tag, {
-        through: 'ItemTag',
-        foreignKey: 'item_id',
-        as: 'tags'
+          through: 'ItemTag',
+          foreignKey: 'itemId',
+          as: 'tags'
       });
-    };
-  
-    return Item;
   };
+
+  return Item;
+};

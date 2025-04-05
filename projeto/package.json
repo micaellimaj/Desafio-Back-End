@@ -2,9 +2,13 @@
   "name": "projeto",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "dev": "node src/server.js"
-  },
+    "scripts": {
+      "migrate": "sequelize-cli db:migrate",
+      "migrate:undo": "sequelize-cli db:migrate:undo",
+      "migrate:undo:all": "sequelize-cli db:migrate:undo:all",
+      "seed": "sequelize-cli db:seed:all",
+      "seed:undo": "sequelize-cli db:seed:undo:all"
+    },
   "keywords": [],
   "author": "",
   "license": "ISC",
