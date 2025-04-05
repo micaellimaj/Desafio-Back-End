@@ -1,0 +1,7 @@
+{
+  "development": {
+    "storage": "./time.db",
+    "dialect": "sqlite",
+    "logging": true
+  }
+}
