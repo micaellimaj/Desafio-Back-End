@@ -1,16 +1,17 @@
 module.exports = (sequelize, DataTypes) => {
     const ItemTag = sequelize.define('ItemTag', {
-      itemId: {
+      item_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
       },
-      tagId: {
+      tag_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
       }
     }, {
       tableName: 'ItemTag',
-      timestamps: false
+      timestamps: true,
+      underscored: true
     });
   
     return ItemTag;

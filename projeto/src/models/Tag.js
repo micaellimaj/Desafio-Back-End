@@ -7,6 +7,9 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true
       }
     }
+  }, {
+    timestamps: true,
+    underscored: true
   });
 
   Tag.associate = (models) => {

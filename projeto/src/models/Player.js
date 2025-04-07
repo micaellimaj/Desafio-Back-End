@@ -13,13 +13,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true
     }
-    
+  }, {
+    timestamps: true,
+    underscored: true
   });
 
   Player.associate = (models) => {
     Player.belongsTo(models.Team, {
       foreignKey: 'teamId',
-      as: 'team'
+      as: 'team',
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
     });
   };
 
