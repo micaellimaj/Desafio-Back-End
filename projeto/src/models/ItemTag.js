@@ -1,18 +1,18 @@
-// models/ItemTag.js
-  // ItemTag migration
-module.exports = {
-  up: async (queryInterface, Sequelize) => {
-      await queryInterface.createTable('ItemTag', {
-          itemId: {
-              type: Sequelize.INTEGER,
-              references: { model: 'Items' },
-              primaryKey: true
-          },
-          tagId: {
-              type: Sequelize.INTEGER,
-              references: { model: 'Tags' },
-              primaryKey: true
-          }
-      });
-  }
-};
+module.exports = (sequelize, DataTypes) => {
+    const ItemTag = sequelize.define('ItemTag', {
+      itemId: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+      },
+      tagId: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+      }
+    }, {
+      tableName: 'ItemTag',
+      timestamps: false
+    });
+  
+    return ItemTag;
+  };
+  

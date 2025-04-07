@@ -1,18 +1,18 @@
-// models/ItemUser.js
-// ItemUser migration
-module.exports = {
-  up: async (queryInterface, Sequelize) => {
-      await queryInterface.createTable('ItemUser', {
-          itemId: {
-              type: Sequelize.INTEGER,
-              references: { model: 'Items' },
-              primaryKey: true
-          },
-          userId: {
-              type: Sequelize.INTEGER,
-              references: { model: 'Users' },
-              primaryKey: true
-          }
-      });
-  }
-};
+module.exports = (sequelize, DataTypes) => {
+    const ItemUser = sequelize.define('ItemUser', {
+      itemId: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+      }
+    }, {
+      tableName: 'ItemUser',
+      timestamps: false
+    });
+  
+    return ItemUser;
+  };
+  

@@ -1,22 +1,19 @@
-// src/config/db.js
-require('dotenv').config();
+const { Sequelize } = require('sequelize');
+const config = require('../config/config.json');
 
-const { Sequelize, DataTypes } = require('sequelize');
+// Seleciona o ambiente de desenvolvimento
+const env = process.env.NODE_ENV || 'development';
+const dbConfig = config[env];
 
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
-    host: process.env.DB_HOST || 'localhost',
-    dialect: 'postgres',
-    logging: console.log,
-    dialectOptions: {
-        ssl: {
-            require: true,
-            rejectUnauthorized: false
-        }
-    },
-    define: {
-        timestamps: true,
-        freezeTableName: true
-    }
+// Cria a instância do Sequelize com SQLite
+const sequelize = new Sequelize({
+  dialect: dbConfig.dialect,
+  storage: dbConfig.storage,
+  logging: dbConfig.logging,
+  define: {
+    timestamps: true,
+    freezeTableName: true
+  }
 });
 
 module.exports = sequelize;

@@ -1,34 +1,65 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const tagRoutes = require('./routes/tagRoutes');
+const path = require('path');
+
+const authMiddleware = require('./middlewares/auth');
+
 const authRoutes = require('./routes/authRoutes');
+const userRoutes = require('./routes/userRoutes');
+const itemRoutes = require('./routes/itemRoutes');
+const tagRoutes = require('./routes/tagRoutes');
+const teamRoutes = require('./routes/teamRoutes');
+const playerRoutes = require('./routes/playerRoutes');
 
 const app = express();
 
-// Middlewares
+// Middlewares globais
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Rotas públicas (autenticação)
-app.use('/auth', require('./routes/authRoutes'));
-
-// Middleware de autenticação JWT
-app.use(require('./middlewares/auth'));
-
-// Rotas protegidas
-app.use('/users', require('./routes/userRoutes'));
-app.use('/items', require('./routes/itemRoutes'));
-app.use('/tags', require('./routes/tagRoutes'));
-
 // Rota para arquivos estáticos (uploads)
-app.use('/uploads', express.static('uploads'));
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
-// Tratamento de erros
+// ============================
+//        ROTAS PÚBLICAS
+// ============================
+app.use('/auth', authRoutes);
+
+// ============================
+//   MIDDLEWARE DE AUTENTICAÇÃO
+// ============================
+app.use(authMiddleware); // Todas as rotas abaixo exigem token
+
+// ============================
+//        ROTAS PROTEGIDAS
+// ============================
+app.use('/users', userRoutes);
+app.use('/items', itemRoutes);
+app.use('/tags', tagRoutes);
+app.use('/teams', teamRoutes);
+app.use('/players', playerRoutes);
+
+// ============================
+//    ROTA DE TESTE (opcional)
+// ============================
+// app.get('/', (req, res) => res.send('API funcionando!'));
+
+// ============================
+//     TRATAMENTO DE ERROS
+// ============================
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Something broke!' });
+});
+
+// ============================
+//         INICIAR SERVIDOR
+// ============================
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
 
 module.exports = app;

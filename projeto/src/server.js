@@ -1,15 +1,18 @@
+require('dotenv').config(); // <- Certifique-se de que isso está no topo!
+
 const app = require('./app');
-const { sequelize } = require('./models/User');
+const { sequelize } = require('./models');
 
 const PORT = process.env.PORT || 3000;
 
-// Sincroniza o banco de dados e inicia o servidor
-sequelize.sync({ force: false }) // altere para true apenas em desenvolvimento para recriar tabelas
+// Sincroniza os modelos com o banco de dados
+sequelize.sync({ alter: true })
   .then(() => {
     app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
+      console.log(`Servidor rodando na porta ${PORT}`);
+      console.log(`Banco de dados SQLite em: ${sequelize.options.storage || 'não especificado'}`);
     });
   })
   .catch(err => {
-    console.error('Unable to connect to the database:', err);
+    console.error('Falha ao iniciar o servidor:', err);
   });

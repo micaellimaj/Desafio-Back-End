@@ -7,6 +7,8 @@ const sequelize = new Sequelize('time', null, null, {
     logging: console.log
 });
 
+module.exports = require('../models');
+
 // Teste de conexão
 async function testConnection() {
     try {
