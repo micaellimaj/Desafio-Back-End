@@ -26,6 +26,7 @@ app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 //        ROTAS PÚBLICAS
 // ============================
 app.use('/auth', authRoutes);
+app.use(express.json()); 
 
 // ============================
 //   MIDDLEWARE DE AUTENTICAÇÃO

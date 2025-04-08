@@ -1,15 +1,21 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { User } = require('../models');
+const { Op } = require('sequelize');
 
 exports.register = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { first_name, last_name, email, username, password } = req.body;
 
-    // Verifica se o usuário já existe
-    const userExists = await User.findOne({ where: { email } });
+    // Verifica se o usuário já existe (por e-mail ou username)
+    const userExists = await User.findOne({
+      where: {
+        [Op.or]: [{ email }, { username }]
+      }
+    });
+
     if (userExists) {
-      return res.status(400).json({ error: 'Email já está em uso.' });
+      return res.status(400).json({ error: 'Email ou username já está em uso.' });
     }
 
     // Criptografa a senha
@@ -17,8 +23,10 @@ exports.register = async (req, res) => {
 
     // Cria o usuário
     const user = await User.create({
-      name,
+      first_name,
+      last_name,
       email,
+      username,
       password: hashedPassword
     });
 
@@ -34,13 +42,17 @@ exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Busca o usuário
+    // Verifica se o usuário existe
     const user = await User.findOne({ where: { email } });
-    if (!user) return res.status(404).json({ error: 'Usuário não encontrado.' });
+    if (!user) {
+      return res.status(404).json({ error: 'Usuário não encontrado.' });
+    }
 
     // Verifica a senha
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(401).json({ error: 'Senha incorreta.' });
+    if (!isMatch) {
+      return res.status(401).json({ error: 'Senha incorreta.' });
+    }
 
     // Gera o token
     const token = jwt.sign(
@@ -49,6 +61,7 @@ exports.login = async (req, res) => {
       { expiresIn: '1d' }
     );
 
+    // Retorna o token
     res.json({ token });
   } catch (error) {
     res.status(500).json({ error: error.message });
