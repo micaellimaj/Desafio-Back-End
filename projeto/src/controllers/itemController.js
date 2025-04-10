@@ -7,8 +7,8 @@ exports.getAllItems = async (req, res) => {
       limit: parseInt(limit),
       offset: parseInt(offset),
       include: [
-        { model: Tag, as: 'tags' },
-        { model: User, as: 'users', attributes: { exclude: ['password'] } }
+        { model: Tag, as: 'tags', attributes: ['id', 'name'] },
+        { model: User, as: 'users', attributes: { exclude: ['password', 'createdAt', 'updatedAt', 'deletedAt'] } }
       ]
     });
     res.json(items);
@@ -21,8 +21,8 @@ exports.getItemById = async (req, res) => {
   try {
     const item = await Item.findByPk(req.params.id, {
       include: [
-        { model: Tag, as: 'tags' },
-        { model: User, as: 'users', attributes: { exclude: ['password'] } }
+        { model: Tag, as: 'tags', attributes: ['id', 'name'] },
+        { model: User, as: 'users', attributes: { exclude: ['password', 'createdAt', 'updatedAt', 'deletedAt'] } }
       ]
     });
     if (!item) return res.status(404).json({ error: 'Item não encontrado' });
@@ -41,17 +41,33 @@ exports.createItem = async (req, res) => {
     // Relacionar tags
     if (tags && tags.length) {
       const tagInstances = await Tag.findAll({ where: { id: tags } });
+
+      if (tagInstances.length !== tags.length) {
+        return res.status(400).json({ error: 'Uma ou mais tags não existem' });
+      }
+
       await item.addTags(tagInstances);
     }
 
-    // Relacionar usuários
+    // Relacionar usuários com relation_type
     if (users && users.length) {
-      const userInstances = await User.findAll({ where: { id: users } });
-      await item.addUsers(userInstances);
+      for (const userObj of users) {
+        const user = await User.findByPk(userObj.id);
+        if (!user) {
+          return res.status(400).json({ error: `Usuário com ID ${userObj.id} não existe` });
+        }
+
+        await item.addUser(user, {
+          through: { relation_type: userObj.relation_type || 'RESPONSIBLE' }
+        });
+      }
     }
 
     const itemWithRelations = await Item.findByPk(item.id, {
-      include: ['tags', 'users']
+      include: [
+        { model: Tag, as: 'tags', attributes: ['id', 'name'] },
+        { model: User, as: 'users', attributes: { exclude: ['password', 'createdAt', 'updatedAt', 'deletedAt'] } }
+      ]
     });
 
     res.status(201).json(itemWithRelations);
@@ -71,16 +87,31 @@ exports.updateItem = async (req, res) => {
 
     if (tags) {
       const tagInstances = await Tag.findAll({ where: { id: tags } });
+      if (tagInstances.length !== tags.length) {
+        return res.status(400).json({ error: 'Uma ou mais tags não existem' });
+      }
       await item.setTags(tagInstances);
     }
 
     if (users) {
-      const userInstances = await User.findAll({ where: { id: users } });
-      await item.setUsers(userInstances);
+      await item.setUsers([]); // limpa as relações existentes
+      for (const userObj of users) {
+        const user = await User.findByPk(userObj.id);
+        if (!user) {
+          return res.status(400).json({ error: `Usuário com ID ${userObj.id} não existe` });
+        }
+
+        await item.addUser(user, {
+          through: { relation_type: userObj.relation_type || 'RESPONSIBLE' }
+        });
+      }
     }
 
     const updatedItem = await Item.findByPk(req.params.id, {
-      include: ['tags', 'users']
+      include: [
+        { model: Tag, as: 'tags', attributes: ['id', 'name'] },
+        { model: User, as: 'users', attributes: { exclude: ['password', 'createdAt', 'updatedAt', 'deletedAt'] } }
+      ]
     });
 
     res.json(updatedItem);

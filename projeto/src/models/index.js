@@ -17,6 +17,7 @@ const models = {
   ItemUser: require('./ItemUser')(sequelize, DataTypes),
   Team: require('./Team')(sequelize, DataTypes),
   Player: require('./Player')(sequelize, DataTypes),
+  TeamUser: require('./TeamUser')(sequelize, DataTypes),
 };
 
 // Configuração de relacionamentos (caso existam nos modelos)

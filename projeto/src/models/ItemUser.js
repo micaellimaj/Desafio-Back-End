@@ -7,13 +7,17 @@ module.exports = (sequelize, DataTypes) => {
     user_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+    },
+    relation_type: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: 'RESPONSIBLE'
     }
   }, {
     tableName: 'ItemUser',
     timestamps: true,
     underscored: true
   });
-  
-    return ItemUser;
-  };
-  
+
+  return ItemUser;
+};

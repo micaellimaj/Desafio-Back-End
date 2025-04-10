@@ -1,4 +1,5 @@
 // src/models/Team.js
+// src/models/Team.js
 module.exports = (sequelize, DataTypes) => {
   const Team = sequelize.define('Team', {
     name: {
@@ -15,8 +16,13 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'teamId',
       as: 'players'
     });
+
+    Team.belongsToMany(models.User, {
+      through: models.TeamUser,
+      foreignKey: 'team_id',
+      as: 'users'
+    });
   };
 
   return Team;
 };
-

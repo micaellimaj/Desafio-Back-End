@@ -27,7 +27,7 @@ const playerController = {
   async list(req, res) {
     try {
       const players = await Player.findAll({
-        include: { model: Team, as: 'team' }
+        include: { model: Team, as: 'team', attributes: ['id', 'name'] }, attributes: ['id', 'name', 'image_url', 'teamId']
       });
       return res.status(200).json(players);
     } catch (err) {

@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Item = sequelize.define('Item', {
+    const Item = sequelize.define('Item', { 
       name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -36,7 +36,9 @@ module.exports = (sequelize, DataTypes) => {
       Item.belongsToMany(models.Tag, {
         through: 'ItemTag',
         foreignKey: 'item_id',
-        as: 'tags'
+        as: 'tags',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
       });
     };
   
