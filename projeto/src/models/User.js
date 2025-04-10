@@ -36,14 +36,19 @@ module.exports = (sequelize, DataTypes) => {
     }
   },{
     timestamps: true,
-    underscored: true
+    underscored: true,
+    paranoid: true,
+    freezeTableName: true,
+    tableName: 'users'
   });
 
   User.associate = (models) => {
     User.belongsToMany(models.Item, {
       through: 'ItemUser',
       foreignKey: 'user_id',
-      as: 'items'
+      as: 'items',
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
     });
     
     User.belongsToMany(models.Team, {

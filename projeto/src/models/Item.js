@@ -14,9 +14,6 @@ module.exports = (sequelize, DataTypes) => {
       image_url: {
         type: DataTypes.STRING,
         allowNull: true,
-        validate: {
-          isUrl: true
-        }
       }
     }, {
       timestamps: true,
@@ -30,7 +27,9 @@ module.exports = (sequelize, DataTypes) => {
       Item.belongsToMany(models.User, {
         through: 'ItemUser',
         foreignKey: 'item_id',
-        as: 'users'
+        as: 'users',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
       });
   
       Item.belongsToMany(models.Tag, {

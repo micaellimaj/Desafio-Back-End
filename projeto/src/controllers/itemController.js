@@ -36,6 +36,11 @@ exports.createItem = async (req, res) => {
   try {
     const { tags, users, ...itemData } = req.body;
 
+    // Adiciona a URL completa da imagem, caso tenha sido enviada
+    if (req.file) {
+      itemData.image_url = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+    }
+
     const item = await Item.create(itemData);
 
     // Relacionar tags
@@ -122,11 +127,13 @@ exports.updateItem = async (req, res) => {
 
 exports.deleteItem = async (req, res) => {
   try {
-    const deleted = await Item.destroy({ where: { id: req.params.id } });
-    if (!deleted) return res.status(404).json({ error: 'Item não encontrado' });
+    const item = await Item.findByPk(req.params.id);
+    if (!item) return res.status(404).json({ error: 'Item não encontrado' });
 
-    res.status(204).send();
+    await item.destroy(); // Isso também respeita os constraints e cascades
+    res.status(200).json({ message: 'Item excluído com sucesso' });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
+

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const itemController = require('../controllers/itemController');
+const upload = require('../config/multer');
 
 // GET todos os itens
 router.get('/', itemController.getAllItems);
@@ -9,7 +10,7 @@ router.get('/', itemController.getAllItems);
 router.get('/:id', itemController.getItemById);
 
 // POST criar novo item
-router.post('/', itemController.createItem);
+router.post('/', upload.single('image'), itemController.createItem);
 
 // PUT atualizar item
 router.put('/:id', itemController.updateItem);
