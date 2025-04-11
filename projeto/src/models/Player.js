@@ -7,15 +7,24 @@ module.exports = (sequelize, DataTypes) => {
     },
     teamId: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      references: {
+      model: 'teams',
+      key: 'id'
     },
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE'
+  },
     image_url: {
       type: DataTypes.STRING,
       allowNull: true
     }
   }, {
     timestamps: true,
-    underscored: true
+    underscored: true,
+    freezeTableName: true,
+    paranoid: true,
+    tableName: 'players'
   });
 
   Player.associate = (models) => {

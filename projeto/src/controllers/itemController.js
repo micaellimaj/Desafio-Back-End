@@ -88,6 +88,11 @@ exports.updateItem = async (req, res) => {
     const item = await Item.findByPk(req.params.id);
     if (!item) return res.status(404).json({ error: 'Item não encontrado' });
 
+    // Se imagem nova foi enviada, atualiza a URL
+    if (req.file) {
+      itemData.image_url = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+    }
+
     await item.update(itemData);
 
     if (tags) {

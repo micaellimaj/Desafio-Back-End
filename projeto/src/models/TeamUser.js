@@ -1,24 +1,35 @@
-// src/models/TeamUser.js
 module.exports = (sequelize, DataTypes) => {
-    const TeamUser = sequelize.define('TeamUser', {
-      team_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+  const TeamUser = sequelize.define('TeamUser', {
+    team_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'teams',
+        key: 'id'
       },
-      user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'users',
+        key: 'id'
       },
-      relation_type: {
-        type: DataTypes.ENUM('CREATOR', 'COLLABORATOR'),
-        allowNull: false,
-        defaultValue: 'COLLABORATOR'
-      }
-    }, {
-      timestamps: false,
-      underscored: true
-    });
-  
-    return TeamUser;
-  };
-  
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
+    },
+    relation_type: {
+      type: DataTypes.ENUM('CREATOR', 'COLLABORATOR'),
+      allowNull: false,
+      defaultValue: 'COLLABORATOR'
+    }
+  }, {
+    timestamps: true,
+    underscored: true,
+    freezeTableName: true
+  });
+
+  return TeamUser;
+};

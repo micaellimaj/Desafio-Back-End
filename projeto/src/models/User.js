@@ -54,7 +54,9 @@ module.exports = (sequelize, DataTypes) => {
     User.belongsToMany(models.Team, {
       through: models.TeamUser,
       foreignKey: 'user_id',
-      as: 'teams'
+      as: 'teams',
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
     });
     
   };

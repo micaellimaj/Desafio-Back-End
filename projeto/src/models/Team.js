@@ -1,5 +1,3 @@
-// src/models/Team.js
-// src/models/Team.js
 module.exports = (sequelize, DataTypes) => {
   const Team = sequelize.define('Team', {
     name: {
@@ -8,7 +6,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     timestamps: true,
-    underscored: true
+    underscored: true,
+    freezeTableName: true,
+    paranoid: true
   });
 
   Team.associate = (models) => {
@@ -20,7 +20,9 @@ module.exports = (sequelize, DataTypes) => {
     Team.belongsToMany(models.User, {
       through: models.TeamUser,
       foreignKey: 'team_id',
-      as: 'users'
+      as: 'users',
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
     });
   };
 
