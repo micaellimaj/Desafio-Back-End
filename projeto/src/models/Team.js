@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: true,
     underscored: true,
     freezeTableName: true,
-    paranoid: true
+    paranoid: true,
+    tableName: 'team'
   });
 
   Team.associate = (models) => {
