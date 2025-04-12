@@ -8,6 +8,7 @@ const playerSchema = Joi.object({
   image_url: Joi.string().uri().allow(null, '') 
 });
 
+// Criação do Jogador
 const playerController = {
   async create(req, res) {
     try {
@@ -24,6 +25,7 @@ const playerController = {
     }
   },
 
+  // Lista de Jogadores
   async list(req, res) {
     try {
       const players = await Player.findAll({
@@ -34,6 +36,8 @@ const playerController = {
       return res.status(500).json({ error: 'Erro ao listar jogadores', details: err.message });
     }
   },
+
+  // Atualização de jogadores
 
   async update(req, res) {
     try {
@@ -54,6 +58,7 @@ const playerController = {
     }
   },
 
+// Deleção de jogadores
   async delete(req, res) {
     try {
       const { id } = req.params;

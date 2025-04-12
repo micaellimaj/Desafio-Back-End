@@ -9,10 +9,10 @@ router.get('/', itemController.getAllItems);
 // GET item por ID
 router.get('/:id', itemController.getItemById);
 
-// POST criar novo item (com imagem)
+// POST criar novo item
 router.post('/', upload.single('image'), itemController.createItem);
 
-// PUT atualizar item (também com imagem, se enviada)
+// PUT atualizar item
 router.put('/:id', upload.single('image'), itemController.updateItem);
 
 // DELETE remover item

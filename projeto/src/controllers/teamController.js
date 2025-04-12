@@ -6,6 +6,7 @@ const teamSchema = Joi.object({
   name: Joi.string().min(2).required()
 });
 
+// Criação de times
 const teamController = {
   async create(req, res) {
     try {
@@ -32,6 +33,7 @@ const teamController = {
     }
   },
 
+  // Lista de Times
   async list(req, res) {
     try {
       const teams = await Team.findAll({
@@ -49,6 +51,7 @@ const teamController = {
     }
   },
 
+  // Atualização de Times
   async update(req, res) {
     try {
       const { id } = req.params;
@@ -65,6 +68,7 @@ const teamController = {
     }
   },
 
+  // Deleção de Times
   async delete(req, res) {
     try {
       const { id } = req.params;

@@ -22,42 +22,34 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Rota para arquivos estáticos (uploads)
 app.use('/uploads', express.static(path.resolve(__dirname, 'uploads')));
 
-// ============================
-//        ROTAS PÚBLICAS
-// ============================
+
+// ROTAS PÚBLICAS
 app.use('/auth', authRoutes);
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 
-// ============================
-//   MIDDLEWARE DE AUTENTICAÇÃO
-// ============================
-app.use(authMiddleware); // Todas as rotas abaixo exigem token
 
-// ============================
-//        ROTAS PROTEGIDAS
-// ============================
+// MIDDLEWARE DE AUTENTICAÇÃO
+app.use(authMiddleware);
+
+// ROTAS PROTEGIDAS
+
 app.use('/users', userRoutes);
 app.use('/items', itemRoutes);
 app.use('/tags', tagRoutes);
 app.use('/teams', teamRoutes);
 app.use('/players', playerRoutes);
 
-// ============================
+//
 //    ROTA DE TESTE (opcional)
 // ============================
 // app.get('/', (req, res) => res.send('API funcionando!'));
 
-// ============================
-//     TRATAMENTO DE ERROS
-// ============================
+// TRATAMENTO DE ERROS
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Something broke!' });
 });
 
-// ============================
-//         INICIAR SERVIDOR
-// ============================
-
+// INICIAR SERVIDOR
 module.exports = app;

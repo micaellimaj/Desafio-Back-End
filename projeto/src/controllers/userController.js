@@ -1,5 +1,6 @@
 const { User } = require('../models');
 
+// Retornar todos os usuarios
 exports.getAllUsers = async (req, res) => {
   try {
     const { limit = 10, offset = 0 } = req.query;
@@ -14,6 +15,7 @@ exports.getAllUsers = async (req, res) => {
   }
 };
 
+// Retornar usuario por ID
 exports.getUserById = async (req, res) => {
   try {
     const user = await User.findByPk(req.params.id, {
@@ -26,6 +28,7 @@ exports.getUserById = async (req, res) => {
   }
 };
 
+// Criar novo usuario
 exports.createUser = async (req, res) => {
   try {
     const user = await User.create(req.body);
@@ -37,6 +40,7 @@ exports.createUser = async (req, res) => {
   }
 };
 
+// Atualizar usuario
 exports.updateUser = async (req, res) => {
   try {
     const [updated] = await User.update(req.body, {
@@ -53,6 +57,7 @@ exports.updateUser = async (req, res) => {
   }
 };
 
+// Deletar usuario
 exports.deleteUser = async (req, res) => {
   try {
     const deleted = await User.destroy({

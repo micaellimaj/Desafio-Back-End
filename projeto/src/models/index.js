@@ -5,7 +5,7 @@ require('dotenv').config();
 // Instância do Sequelize com caminho absoluto do .env
 const sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: path.resolve(process.env.DB_PATH) // Ex: ./time.db
+  storage: path.resolve(process.env.DB_PATH) 
 });
 
 // Importação dos modelos
