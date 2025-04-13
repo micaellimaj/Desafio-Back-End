@@ -1,4 +1,4 @@
-# <img src="https://cdn3.emoji.gg/emojis/7626-mariobros-highfive.gif" alt="Mario" width="50" height="50" /> Mario Maker API 
+# <img src="https://cdn3.emoji.gg/emojis/6189-mariobros-mariohello.gif" alt="Mario" width="50" height="50" /> Mario Maker API 
 
 ![banner](Imagens/Readme/Mario_poster.png)
 
@@ -7,7 +7,11 @@ No Reino dos Cogumelos, os criadores de fases se tornaram os novos heróis. Com 
 
 Cada criador pode trabalhar de forma independente ou formar equipes criativas, onde compartilham itens, ideias e testam suas fases antes de publicá-las. A plataforma traz um sistema de autenticação, segurança e organização dos dados para garantir a melhor experiência aos fãs e desenvolvedores do Marioverse.
 
-## <img src="https://cdn3.emoji.gg/emojis/6861-luigidance.gif" alt="Coin" width="35" height="35" /> Objetivo: 
+## <img src="https://cdn3.emoji.gg/emojis/7853-mariobros-bowsersorry.gif" alt="Descrição" width="35" height="35" /> Estrutura do Projeto:
+![Estrutura_Projeto](Imagens/Readme/)
+
+## <img src="https://cdn3.emoji.gg/emojis/6861-luigidance.gif" alt="Coin" width="45" height="45" />Objetivo: 
+
 Criar uma REST API com autenticação JWT que possibilite o gerenciamento completo das entidades envolvidas na criação colaborativa de fases do Mario. A API deve permitir que os usuários:
 * Se cadastrem e façam login.
 * Criem e gerenciem itens (ex: blocos, inimigos, power-ups).
@@ -17,4 +21,26 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
 * Usem paginação e uploads locais de imagens.
 * Criem relações do tipo "CRIADOR" ou "COLABORADOR" com suas equipes.
 
+## <img src="https://cdn3.emoji.gg/emojis/9271-mariobros-donkeykongfire.gif" alt="Coin" width="35" height="35" /> Tecnologias:
+
+<div align="center" style="display: inline_block">
+  <img align="center" alt="github" src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
+  <img align="center" alt="vscode" src="https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" /> 
+  <img align="center" alt="nodejs" src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" />
+  <img align="center" alt="express" src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
+  <img align="center" alt="sequelize" src="https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=sequelize&logoColor=white" />
+  <img align="center" alt="jwt" src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" />
+  <img align="center" alt="sqlite" src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" />
+  <img align="center" alt="postman" src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white" />
+</div>
+
+## <img src="https://cdn3.emoji.gg/emojis/9475-mariobros-toadhug.gif" alt="Coin" width="35" height="35" /> Relações do Banco de dados:
+
+## <img src="https://cdn3.emoji.gg/emojis/8155-mariobros-yoshihungry.gif" alt="Coin" width="35" height="35" /> Etapas do Projeto:
+
+## <img src="https://cdn3.emoji.gg/emojis/7673-mariobros-peachsmile.gif" alt="Coin" width="35" height="35" /> Organização dos Diretórios:
+
+## <img src="https://cdn3.emoji.gg/emojis/9271-mariobros-donkeykongfire.gif" alt="Coin" width="35" height="35" /> Como Instalar e Executar o Projeto:
+
+## <img src="https://cdn3.emoji.gg/emojis/1094-mariobros-luigicry.gif" alt="Coin" width="35" height="35" />  Conclusão:
 
