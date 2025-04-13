@@ -77,6 +77,63 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
 
 ## <img src="https://cdn3.emoji.gg/emojis/9271-mariobros-donkeykongfire.gif" alt="Coin" width="35" height="35" /> Como Instalar e Executar o Projeto:
 
+1. Pré-requisitos:
+
+* Antes de iniciar, certifique-se de ter instalado:
+* Node.js (versão 16 ou superior)
+* npm ou yarn
+* Git
+* SQLite (para banco de dados local)
+
+2. Clonando o repositório:
+
+* bash:
+```
+git clone https://github.com/micaellimaj/Desafio-Back-End
+cd projeto
+```
+3. Instalando as dependências:
+
+* bash
+```
+npm install
+# ou
+yarn install
+```
+4. Configuração do ambiente:
+* Crie um arquivo .env na raiz do projeto com:
+  * env:
+```
+DB_PATH=./database.sqlite
+JWT_SECRET=sua_chave_secreta_aqui
+PORT=3000
+UPLOADS_DIR=./uploads
+```
+
+5. Executando o projeto:
+
+* bash:
+```
+npm start
+# ou para desenvolvimento com auto-reload:
+npm run dev
+```
+
+6. Acessando a API:
+
+* O servidor estará disponível em:
+```
+http://localhost:3000
+```
+7. Testando as rotas:
+* Utilize o Postman ou Insomnia para testar os endpoints
+* Dica: Para uma experiência completa do mundo Mario, sugerimos testar primeiro as rotas de:
+```
+POST /auth/register
+POST /teams
+POST /items (com upload de imagem)
+```
+
 ## <img src="https://cdn3.emoji.gg/emojis/1094-mariobros-luigicry.gif" alt="Coin" width="35" height="35" />  Conclusão:
 
 O desenvolvimento da Mario API REST foi uma oportunidade sólida para aplicar conceitos fundamentais de construção de APIs robustas, organizadas e escaláveis. Através da separação de entidades como usuários, jogadores, times, itens e tags, foi possível construir uma estrutura modular e compreensível, respeitando boas práticas RESTful e utilizando o Sequelize como ORM para facilitar a interação com o banco de dados.
