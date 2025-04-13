@@ -5,7 +5,7 @@ No Reino dos Cogumelos, os criadores de fases se tornaram os novos heróis. Com 
 
 Cada criador pode trabalhar de forma independente ou formar equipes criativas, onde compartilham itens, ideias e testam suas fases antes de publicá-las. A plataforma traz um sistema de autenticação, segurança e organização dos dados para garantir a melhor experiência aos fãs e desenvolvedores do Marioverse.
 
-## Objetivo: 
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Coin.png" alt="Coin" width="35" height="35" /> Objetivo: 
 Criar uma REST API com autenticação JWT que possibilite o gerenciamento completo das entidades envolvidas na criação colaborativa de fases do Mario. A API deve permitir que os usuários:
 * Se cadastrem e façam login.
 * Criem e gerenciem itens (ex: blocos, inimigos, power-ups).
@@ -28,7 +28,7 @@ Estrela (Invencibilidade)
 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Glowing%20Star.png" alt="Star" width="35" height="35" />
 
 Moeda
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Coin.png" alt="Coin" width="35" height="35" />
+
 
 Bloco de Interrogação
 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Package.png" alt="Question Block" width="35" height="35" />
