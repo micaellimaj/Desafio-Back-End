@@ -38,7 +38,7 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
 
 ## <img src="https://cdn3.emoji.gg/emojis/8155-mariobros-yoshihungry.gif" alt="Coin" width="35" height="35" /> Etapas do Projeto:
 
-1️. Planejamento & Arquitetura:
+1️. **Planejamento & Arquitetura**:
 
 * Definição das entidades e relacionamentos (diagrama ER).
 * Escolha das tecnologias:
@@ -46,7 +46,7 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
   * Autenticação: JWT + bcrypt.
   * Uploads: Multer.
   
-2️. Implementação:
+2️. **Implementação**:
 
 * Autenticação:
   * Rotas de /register e /login com validação Joi.
@@ -69,7 +69,7 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
 * Players
   * CRUD + vínculo com Teams.
 
-3️. Validação & Testes:
+3️. **Validação & Testes**:
 
 * Testes no Postman para todas as rotas.
 
@@ -77,30 +77,29 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
 
 ## <img src="https://cdn3.emoji.gg/emojis/9271-mariobros-donkeykongfire.gif" alt="Coin" width="35" height="35" /> Como Instalar e Executar o Projeto:
 
-1. Pré-requisitos:
-
+1. **Pré-requisitos**:
 * Antes de iniciar, certifique-se de ter instalado:
 * Node.js (versão 16 ou superior)
 * npm ou yarn
 * Git
 * SQLite (para banco de dados local)
 
-2. Clonando o repositório:
-
+2. **Clonando o repositório**:
 * bash:
 ```
 git clone https://github.com/micaellimaj/Desafio-Back-End
 cd projeto
 ```
-3. Instalando as dependências:
 
+3. **Instalando as dependências**:
 * bash
 ```
 npm install
 # ou
 yarn install
 ```
-4. Configuração do ambiente:
+
+4. **Configuração do ambiente**:
 * Crie um arquivo .env na raiz do projeto com:
   * env:
 ```
@@ -110,8 +109,7 @@ PORT=3000
 UPLOADS_DIR=./uploads
 ```
 
-5. Executando o projeto:
-
+5. **Executando o projeto**:
 * bash:
 ```
 npm start
@@ -119,8 +117,7 @@ npm start
 npm run dev
 ```
 
-6. Acessando a API:
-
+6. **Acessando a API**:
 * O servidor estará disponível em:
 ```
 http://localhost:3000
@@ -165,7 +162,17 @@ http://localhost:3000
 |           | PUT    | `/players/:id`           | Atualiza personagem                        | ✅           |
 |           | DELETE | `/players/:id`           | Remove personagem                          |
 
+* Legenda:
+✅ = Requer token JWT no header Authorization: Bearer <token>
+❌ = Rota pública
 
+* Dica para uso no Postman:
+  * Comece registrando um usuário em /auth/register
+  * Faça login em /auth/login para obter o token
+  * Use o token nas demais rotas adicionando no header:
+```
+Authorization: Bearer seu_token_aqui
+```
 ## <img src="https://cdn3.emoji.gg/emojis/1094-mariobros-luigicry.gif" alt="Coin" width="35" height="35" />  Conclusão:
 
 O desenvolvimento da Mario API REST foi uma oportunidade sólida para aplicar conceitos fundamentais de construção de APIs robustas, organizadas e escaláveis. Através da separação de entidades como usuários, jogadores, times, itens e tags, foi possível construir uma estrutura modular e compreensível, respeitando boas práticas RESTful e utilizando o Sequelize como ORM para facilitar a interação com o banco de dados.
