@@ -1,5 +1,7 @@
 # <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Man%20Supervillain.png" alt="Mario" width="35" height="35" /> Mario Maker API 
 
+![banner](Imagens\Readme\Mario_poster (1).png)
+
 ## Introdução:
 No Reino dos Cogumelos, os criadores de fases se tornaram os novos heróis. Com a evolução tecnológica, foi desenvolvida a Mario Maker API, uma plataforma para que jogadores possam criar, editar e compartilhar fases, elementos e ideias para o universo Mario.
 
