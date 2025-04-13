@@ -1,15 +1,31 @@
-// src/config/multer.js
-const multer = require('multer');
-const path = require('path');
+module.exports = (sequelize, DataTypes) => {
+  const Team = sequelize.define('Team', {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
+  }, {
+    timestamps: true,
+    underscored: true,
+    freezeTableName: true,
+    paranoid: true,
+    tableName: 'team'
+  });
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads/');
-  },
-  filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
-  }
-});
+  Team.associate = (models) => {
+    Team.hasMany(models.Player, {
+      foreignKey: 'teamId',
+      as: 'players'
+    });
 
-module.exports = multer({ storage });
+    Team.belongsToMany(models.User, {
+      through: models.TeamUser,
+      foreignKey: 'team_id',
+      as: 'users',
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
+    });
+  };
+
+  return Team;
+};

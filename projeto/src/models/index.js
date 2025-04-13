@@ -1,29 +1,44 @@
-const { Sequelize } = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 const path = require('path');
 require('dotenv').config();
 
-const sequelize = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASSWORD, {
-    host: process.env.DB_HOST,
-    dialect: 'mysql' // ou seu banco de dados
-  }
-);
+// Instância do Sequelize com caminho absoluto do .env
+const sequelize = new Sequelize({
+  dialect: 'sqlite',
+  storage: path.resolve(process.env.DB_PATH) 
+});
 
+// Importação dos modelos
 const models = {
-  Item: require('./Item')(sequelize),
-  Tag: require('./Tag')(sequelize),
-  User: require('./User')(sequelize),
-  ItemTag: require('./ItemTag')(sequelize)
+  User: require('./User')(sequelize, DataTypes),
+  Item: require('./Item')(sequelize, DataTypes),
+  Tag: require('./Tag')(sequelize, DataTypes),
+  ItemTag: require('./ItemTag')(sequelize, DataTypes),
+  ItemUser: require('./ItemUser')(sequelize, DataTypes),
+  Team: require('./Team')(sequelize, DataTypes),
+  Player: require('./Player')(sequelize, DataTypes),
+  TeamUser: require('./TeamUser')(sequelize, DataTypes),
 };
 
-// Configura relacionamentos
-Object.values(models)
-  .filter(model => typeof model.associate === 'function')
-  .forEach(model => model.associate(models));
+// Configuração de relacionamentos (caso existam nos modelos)
+Object.values(models).forEach(model => {
+  if (model.associate) {
+    model.associate(models);
+  }
+});
 
-models.sequelize = sequelize;
-models.Sequelize = Sequelize;
+// Testar a conexão
+(async () => {
+  try {
+    await sequelize.authenticate();
+    console.log('🟢 Conexão com SQLite estabelecida com sucesso!');
+  } catch (error) {
+    console.error('🔴 Erro na conexão com SQLite:', error);
+  }
+})();
 
-module.exports = models;
+module.exports = {
+  ...models,
+  sequelize,
+  Sequelize
+};

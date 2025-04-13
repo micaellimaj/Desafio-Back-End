@@ -1,0 +1,17 @@
+{
+  "development": {
+    "storage": "./src/database/time.db",
+    "dialect": "sqlite",
+    "logging": true
+  },
+  "test": {
+    "storage": "./src/database/test.db",
+    "dialect": "sqlite",
+    "logging": false
+  },
+  "production": {
+    "storage": "./src/database/prod.db",
+    "dialect": "sqlite",
+    "logging": false
+  }
+}

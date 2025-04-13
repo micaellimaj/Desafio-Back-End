@@ -1,10 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
-  const ItemUser = sequelize.define('ItemUser', {
-    item_id: {
+  const TeamUser = sequelize.define('TeamUser', {
+    team_id: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
+      allowNull: false,
       references: {
-        model: 'items',
+        model: 'teams',
         key: 'id'
       },
       onDelete: 'CASCADE',
@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     user_id: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
+      allowNull: false,
       references: {
         model: 'users',
         key: 'id'
@@ -21,15 +21,15 @@ module.exports = (sequelize, DataTypes) => {
       onUpdate: 'CASCADE'
     },
     relation_type: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM('CREATOR', 'COLLABORATOR'),
       allowNull: false,
-      defaultValue: 'RESPONSIBLE'
+      defaultValue: 'COLLABORATOR'
     }
   }, {
-    tableName: 'ItemUser',
     timestamps: true,
-    underscored: true
+    underscored: true,
+    freezeTableName: true
   });
 
-  return ItemUser;
+  return TeamUser;
 };
