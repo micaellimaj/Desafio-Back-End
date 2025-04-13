@@ -38,6 +38,41 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
 
 ## <img src="https://cdn3.emoji.gg/emojis/8155-mariobros-yoshihungry.gif" alt="Coin" width="35" height="35" /> Etapas do Projeto:
 
+1️. Planejamento & Arquitetura:
+
+* Definição das entidades e relacionamentos (diagrama ER).
+* Escolha das tecnologias:
+  * Backend: Node.js, Express, Sequelize (SQLite).
+  * Autenticação: JWT + bcrypt.
+  * Uploads: Multer.
+  
+2️. Implementação:
+
+* Autenticação:
+  * Rotas de /register e /login com validação Joi.
+  * Middleware auth.js para proteger rotas.
+
+* Users:
+  * CRUD completo com soft delete.
+  * Campos: username, email, password (hash).
+
+* Items:
+  * CRUD com upload de imagens (Multer).
+  * Relação N:N com Tags.
+
+* Tags:
+  * CRUD simples + associação a Itens.
+
+* Teams:
+  * CRUD + sistema de membros (CREATOR/COLLABORATOR).
+
+* Players
+  * CRUD + vínculo com Teams.
+
+3️. Validação & Testes:
+
+* Testes no Postman para todas as rotas.
+
 ## <img src="https://cdn3.emoji.gg/emojis/7673-mariobros-peachsmile.gif" alt="Coin" width="35" height="35" /> Organização dos Diretórios:
 
 ## <img src="https://cdn3.emoji.gg/emojis/9271-mariobros-donkeykongfire.gif" alt="Coin" width="35" height="35" /> Como Instalar e Executar o Projeto:
@@ -48,6 +83,9 @@ O desenvolvimento da Mario API REST foi uma oportunidade sólida para aplicar co
 
 Além disso, a integração do multer para upload de arquivos, o uso de middlewares e a configuração dinâmica do ambiente com suporte a SQLite mostram a atenção aos detalhes técnicos e à flexibilidade da aplicação, tornando-a apta para crescer em diferentes contextos de uso. 
 
-Agradeço imensamente a atenção e o interesse em acompanhar o projeto Mario API REST. Este trabalho é fruto de dedicação contínua e aprendizado prático, e representa mais do que uma aplicação funcional — é também um passo concreto na jornada de evolução como desenvolvedor(a).
+## <img src="https://cdn3.emoji.gg/emojis/1193-christmasluigi.png" alt="Coin" width="35" height="35" />  Agradecimento:
 
+Agradeço imensamente a atenção e o interesse em acompanhar o projeto Mario API REST. Este trabalho é fruto de dedicação contínua e aprendizado prático, e representa mais do que uma aplicação funcional — é também um passo concreto na jornada de evolução como desenvolvedor.
+
+"Com grandes poderes de criação vêm grandes blocos de responsabilidade." – Mario, o Encanador Arquiteto de APIs
 
