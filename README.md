@@ -125,14 +125,46 @@ npm run dev
 ```
 http://localhost:3000
 ```
-7. Testando as rotas:
+## <img src="https://cdn3.emoji.gg/emojis/2037-mariobros-koopapls1.gif" alt="Coin" width="35" height="35" /> Testando as Rotas:
+
 * Utilize o Postman ou Insomnia para testar os endpoints
-* Dica: Para uma experiência completa do mundo Mario, sugerimos testar primeiro as rotas de:
-```
-POST /auth/register
-POST /teams
-POST /items (com upload de imagem)
-```
+* Dica: Para uma experiência completa do mundo Mario, sugerimos testar as seguintes rotas com base nas entidades do projeto:
+
+
+
+| Entidade  | Método | Rota                     | Descrição                                  | Autenticação |
+|-----------|--------|--------------------------|--------------------------------------------|--------------|
+| **Auth**  | POST   | `/auth/register`         | Cadastra novo usuário                      | ❌           |
+|           | POST   | `/auth/login`            | Faz login e retorna token JWT              | ❌           |
+| **Users** | GET    | `/users`                 | Lista todos os usuários                    | ✅           |
+|           | GET    | `/users/:id`             | Busca usuário por ID                       | ✅           |
+|           | PUT    | `/users/:id`             | Atualiza usuário                           | ✅           |
+|           | DELETE | `/users/:id`             | Remove usuário (soft delete)               | ✅           |
+| **Teams** | POST   | `/teams`                 | Cria nova equipe                           | ✅           |
+|           | GET    | `/teams`                 | Lista todas as equipes                     | ✅           |
+|           | GET    | `/teams/:id`             | Busca equipe por ID                        | ✅           |
+|           | PUT    | `/teams/:id`             | Atualiza equipe                            | ✅ (apenas criador) |
+|           | DELETE | `/teams/:id`             | Remove equipe                              | ✅ (apenas criador) |
+|           | POST   | `/teams/:id/members`     | Adiciona membro à equipe                   | ✅ (apenas criador) |
+|           | DELETE | `/teams/:id/members/:user_id` | Remove membro da equipe             | ✅ (apenas criador) |
+| **Items** | POST   | `/items`                 | Cria item com upload de imagem             | ✅           |
+|           | GET    | `/items`                 | Lista todos os itens                       | ✅           |
+|           | GET    | `/items/:id`             | Busca item por ID                          | ✅           |
+|           | PUT    | `/items/:id`             | Atualiza item (imagem opcional)            | ✅           |
+|           | DELETE | `/items/:id`             | Remove item                                | ✅           |
+|           | POST   | `/items/:id/tags`        | Adiciona tag ao item                       | ✅           |
+|           | DELETE | `/items/:id/tags/:tag_id`| Remove tag do item                         | ✅           |
+| **Tags**  | POST   | `/tags`                  | Cria nova tag                              | ✅           |
+|           | GET    | `/tags`                  | Lista todas as tags                        | ✅           |
+|           | GET    | `/tags/:id`              | Busca tag por ID                           | ✅           |
+|           | PUT    | `/tags/:id`              | Atualiza tag                               | ✅           |
+|           | DELETE | `/tags/:id`              | Remove tag (soft delete)                   | ✅           |
+| **Players** | POST  | `/players`               | Adiciona personagem à equipe               | ✅           |
+|           | GET    | `/players`               | Lista todos os personagens                 | ✅           |
+|           | GET    | `/players/:id`           | Busca personagem por ID                    | ✅           |
+|           | PUT    | `/players/:id`           | Atualiza personagem                        | ✅           |
+|           | DELETE | `/players/:id`           | Remove personagem                          |
+
 
 ## <img src="https://cdn3.emoji.gg/emojis/1094-mariobros-luigicry.gif" alt="Coin" width="35" height="35" />  Conclusão:
 
