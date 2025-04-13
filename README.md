@@ -44,3 +44,10 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
 
 ## <img src="https://cdn3.emoji.gg/emojis/1094-mariobros-luigicry.gif" alt="Coin" width="35" height="35" />  Conclusão:
 
+O desenvolvimento da Mario API REST foi uma oportunidade sólida para aplicar conceitos fundamentais de construção de APIs robustas, organizadas e escaláveis. Através da separação de entidades como usuários, jogadores, times, itens e tags, foi possível construir uma estrutura modular e compreensível, respeitando boas práticas RESTful e utilizando o Sequelize como ORM para facilitar a interação com o banco de dados.
+
+Além disso, a integração do multer para upload de arquivos, o uso de middlewares e a configuração dinâmica do ambiente com suporte a SQLite mostram a atenção aos detalhes técnicos e à flexibilidade da aplicação, tornando-a apta para crescer em diferentes contextos de uso. 
+
+Agradeço imensamente a atenção e o interesse em acompanhar o projeto Mario API REST. Este trabalho é fruto de dedicação contínua e aprendizado prático, e representa mais do que uma aplicação funcional — é também um passo concreto na jornada de evolução como desenvolvedor(a).
+
+
