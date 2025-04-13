@@ -36,6 +36,7 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
 
 ## <img src="https://cdn3.emoji.gg/emojis/9475-mariobros-toadhug.gif" alt="Coin" width="35" height="35" /> Relações do Banco de dados:
 
+
 ## <img src="https://cdn3.emoji.gg/emojis/8155-mariobros-yoshihungry.gif" alt="Coin" width="35" height="35" /> Etapas do Projeto:
 
 1️. **Planejamento & Arquitetura**:
@@ -72,8 +73,6 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
 3️. **Validação & Testes**:
 
 * Testes no Postman para todas as rotas.
-
-## <img src="https://cdn3.emoji.gg/emojis/7673-mariobros-peachsmile.gif" alt="Coin" width="35" height="35" /> Organização dos Diretórios:
 
 ## <img src="https://cdn3.emoji.gg/emojis/9271-mariobros-donkeykongfire.gif" alt="Coin" width="35" height="35" /> Como Instalar e Executar o Projeto:
 
@@ -173,6 +172,34 @@ http://localhost:3000
 ```
 Authorization: Bearer seu_token_aqui
 ```
+
+## <img src="https://cdn3.emoji.gg/emojis/7673-mariobros-peachsmile.gif" alt="Coin" width="35" height="35" /> Organização dos Diretórios:
+
+```
+mario-maker-api/
+├── src/
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   ├── itemController.js
+│   │   └── ... (outros controllers)
+│   ├── models/
+│   │   ├── User.js
+│   │   ├── Team.js
+│   │   └── ... (outros models)
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   ├── teamRoutes.js
+│   │   └── ... (outras rotas)
+│   ├── middlewares/
+│   │   └── auth.js
+│   └── database/
+│       └── index.js
+├── uploads/          # Armazena imagens dos itens
+├── config.json       # Configurações do Sequelize
+├── server.js         # Ponto de entrada
+└── time.db           # Arquivo do SQLite
+```
+
 ## <img src="https://cdn3.emoji.gg/emojis/1094-mariobros-luigicry.gif" alt="Coin" width="35" height="35" />  Conclusão:
 
 O desenvolvimento da Mario API REST foi uma oportunidade sólida para aplicar conceitos fundamentais de construção de APIs robustas, organizadas e escaláveis. Através da separação de entidades como usuários, jogadores, times, itens e tags, foi possível construir uma estrutura modular e compreensível, respeitando boas práticas RESTful e utilizando o Sequelize como ORM para facilitar a interação com o banco de dados.
