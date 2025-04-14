@@ -196,30 +196,76 @@ Authorization: Bearer seu_token_aqui
 
 ## <img src="https://cdn3.emoji.gg/emojis/7673-mariobros-peachsmile.gif" alt="Coin" width="35" height="35" /> Organização dos Diretórios:
 
+
+### <img src="https://cdn3.emoji.gg/emojis/5420-mk-triple-green-shell.png" alt="Coin" width="20" height="20" /> Todas as pastas:
 ```
-mario-maker-api/
+DESAFIO-BACK-END/
 ├── src/
-│   ├── controllers/
-│   │   ├── authController.js
-│   │   ├── itemController.js
-│   │   └── ... (outros controllers)
-│   ├── models/
-│   │   ├── User.js
-│   │   ├── Team.js
-│   │   └── ... (outros models)
-│   ├── routes/
-│   │   ├── authRoutes.js
-│   │   ├── teamRoutes.js
-│   │   └── ... (outras rotas)
-│   ├── middlewares/
-│   │   └── auth.js
-│   └── database/
-│       └── index.js
-├── uploads/          # Armazena imagens dos itens
-├── config.json       # Configurações do Sequelize
-├── server.js         # Ponto de entrada
-└── time.db           # Arquivo do SQLite
+│ ├── controllers/
+│ │ ├── authController.js         # Lógica de autenticação (login/registro)
+│ │ ├── itemController.js         # CRUD de itens + upload de imagens
+│ │ ├── playerController.js       # Gerenciamento de personagens
+│ │ ├── teamController.js         # Operações com equipes
+│ │ └── userController.js         # Gestão de usuários
+│ │
+│ ├── models/
+│ │ ├── User.js                   # Modelo de usuários (criadores)
+│ │ ├── Team.js                   # Modelo de equipes
+│ │ ├── Item.js                   # Modelo de itens das fases
+│ │ ├── Player.js                 # Modelo de personagens
+│ │ ├── Tag.js                    # Modelo de categorias
+│ │ ├── ItemTag.js                # Tabela de relação Item-Tag (N:N)
+│ │ ├── ItemUser.js               # Tabela de relação Item-User (N:N)
+│ │ ├── TeamUser.js               # Tabela de relação Team-User (N:N)
+│ │ └── index.js                  # Exportação centralizada dos modelos
+│ │
+│ ├── routes/
+│ │ ├── authRoutes.js             # Rotas de autenticação
+│ │ ├── itemRoutes.js             # Rotas de itens (com upload)
+│ │ ├── playerRoutes.js           # Rotas de personagens
+│ │ ├── teamRoutes.js             # Rotas de equipes
+│ │ ├── userRoutes.js             # Rotas de usuários
+│ │ └── tagRoutes.js              # Rotas da tag
+│ │
+│ ├── middlewares/
+│ │ └── auth.js                   # Middleware de autenticação JWT
+│ │
+│ └── database/
+│ └── index.js                    # Configuração do Sequelize e conexão com DB
+│
+├── uploads/                      # Armazena imagens enviadas (itens)
+├── config/
+│ ├── config.json                 # Configurações do Sequelize por ambiente
+│ └── db.js                       # Configurações adicionais do banco
+│
+├── middlewares/
+│ └── auth.js                     # Middleware de autenticação
+│
+├── app.js                        # Configuração principal do Express
+├── server.js                     # Ponto de entrada da aplicação
+├── package.json                  # Dependências e scripts do projeto
+├── package-lock.json             # Versões exatas das dependências
+├── time.db                       # Arquivo do banco SQLite
+├── .env                          # Variáveis de ambiente (JWT_SECRET, etc)
+├── .gitignore                    # Arquivos ignorados pelo Git
+└── README.md                     # Documentação do projeto
 ```
+### <img src="https://cdn3.emoji.gg/emojis/5420-mk-triple-green-shell.png" alt="Coin" width="20" height="20" /> Arquivos Críticos:
+
+| Arquivo               | Função                                                                 |
+|-----------------------|-----------------------------------------------------------------------|
+| `server.js`           | Inicializa o servidor e conecta ao banco                              |
+| `app.js`              | Configura middlewares globais (CORS, JSON, uploads)                   |
+| `config/db.js`        | Configuração detalhada da conexão com o banco                         |
+| `database/index.js`   | Centraliza modelos e associações do Sequelize                         |
+| `middlewares/auth.js` | Valida tokens JWT para rotas protegidas                               |
+
+### <img src="https://cdn3.emoji.gg/emojis/5420-mk-triple-green-shell.png" alt="Coin" width="20" height="20" /> Destaques:
+
+* Estrutura MVC clara (Models-Views-Controllers)
+* Uploads gerenciados pelo Multer (pasta `/uploads`)
+* Relacionamentos complexos via tabelas intermediárias
+* Configuração por ambiente (dev/test/prod)
 
 ## <img src="https://cdn3.emoji.gg/emojis/1094-mariobros-luigicry.gif" alt="Coin" width="35" height="35" />  Conclusão:
 
