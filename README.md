@@ -7,6 +7,8 @@ No Reino dos Cogumelos, os criadores de fases se tornaram os novos heróis. Com 
 
 Cada criador pode trabalhar de forma independente ou formar equipes criativas, onde compartilham itens, ideias e testam suas fases antes de publicá-las. A plataforma traz um sistema de autenticação, segurança e organização dos dados para garantir a melhor experiência aos fãs e desenvolvedores do Marioverse.
 
+🧱 [Segue link de uma documentação mais detalhada de todo o projeto](https://drive.google.com/drive/folders/1nLquFyPt_ATIwbUfIZOvkSwFpQxcCZzv?usp=sharing) 🧱 
+
 ## <img src="https://cdn3.emoji.gg/emojis/7853-mariobros-bowsersorry.gif" alt="Descrição" width="35" height="35" /> Estrutura do Projeto:
 
 ![Estrutura_Projeto](Imagens/Readme/Mario_Maker_Arquitetura.gif)
