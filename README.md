@@ -208,7 +208,7 @@ O desenvolvimento da Mario API REST foi uma oportunidade sólida para aplicar co
 
 Além disso, a integração do multer para upload de arquivos, o uso de middlewares e a configuração dinâmica do ambiente com suporte a SQLite mostram a atenção aos detalhes técnicos e à flexibilidade da aplicação, tornando-a apta para crescer em diferentes contextos de uso. 
 
-## <img src="https://cdn3.emoji.gg/emojis/1193-christmasluigi.png" alt="Coin" width="35" height="35" />  Agradecimento:
+## <img src="https://cdn3.emoji.gg/emojis/7626-mariobros-highfive.gif" alt="Coin" width="35" height="35" />  Agradecimento:
 
 Agradeço imensamente a atenção e o interesse em acompanhar o projeto Mario API REST. Este trabalho é fruto de dedicação contínua e aprendizado prático, e representa mais do que uma aplicação funcional — é também um passo concreto na jornada de evolução como desenvolvedor.
 
