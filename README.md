@@ -38,7 +38,7 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
 ## <img src="https://cdn3.emoji.gg/emojis/9475-mariobros-toadhug.gif" alt="Coin" width="35" height="35" /> Relações do Banco de dados:
 ![Estrutura_Projeto](Imagens/Readme/Diagrama.png)
 
-### Entidades Principais:
+### <img src="https://cdn3.emoji.gg/emojis/1888-mk-mushroom.png" alt="Coin" width="20" height="20" /> Entidades Principais:
 
 | Modelo  | Descrição               | Campos Importantes                     |
 |---------|-------------------------|----------------------------------------|
@@ -48,7 +48,7 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
 | `Player`| Personagens testadores  | id, name, team_id, image_url           |
 | `Tag`   | Categorias de itens     | id, name                               |
 
-### Tabelas de Relacionamento:
+### <img src="https://cdn3.emoji.gg/emojis/1888-mk-mushroom.png" alt="Coin" width="20" height="20" /> Tabelas de Relacionamento:
 
 | Tabela       | Relação         | Campos Especiais                      |
 |--------------|-----------------|---------------------------------------|
@@ -58,7 +58,7 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
 
 ## <img src="https://cdn3.emoji.gg/emojis/8155-mariobros-yoshihungry.gif" alt="Coin" width="35" height="35" /> Etapas do Projeto:
 
-1️. **Planejamento & Arquitetura**:
+### <img src="https://cdn3.emoji.gg/emojis/9266-mk-bullet.png" alt="Coin" width="20" height="20" /> Planejamento & Arquitetura:
 
 * Definição das entidades e relacionamentos (diagrama ER).
 * Escolha das tecnologias:
@@ -66,7 +66,7 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
   * Autenticação: JWT + bcrypt.
   * Uploads: Multer.
   
-2️. **Implementação**:
+### <img src="https://cdn3.emoji.gg/emojis/9266-mk-bullet.png" alt="Coin" width="20" height="20" /> Implementação:
 
 * Autenticação:
   * Rotas de /register e /login com validação Joi.
@@ -89,7 +89,7 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
 * Players
   * CRUD + vínculo com Teams.
 
-3️. **Validação & Testes**:
+### <img src="https://cdn3.emoji.gg/emojis/9266-mk-bullet.png" alt="Coin" width="20" height="20" /> **Validação & Testes**:
 
 * Testes no Postman para todas as rotas.
 
