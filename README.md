@@ -142,7 +142,9 @@ npm run dev
 ```
 http://localhost:3000
 ```
-## <img src="https://cdn3.emoji.gg/emojis/4332-mariobros-toadmusic2.gif" alt="Coin" width="35" height="35" /> Visualização do Projeto Rodando:
+## <img src="https://cdn3.emoji.gg/emojis/4332-mariobros-toadmusic2.gif" alt="Coin" width="35" height="35" /> Demostração no Postman:
+
+![visualizacao](Imagens/Readme/Demonstracao_API.gif)
 
 ## <img src="https://cdn3.emoji.gg/emojis/2037-mariobros-koopapls1.gif" alt="Coin" width="35" height="35" /> Testando as Rotas:
 
