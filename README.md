@@ -277,5 +277,5 @@ Além disso, a integração do multer para upload de arquivos, o uso de middlewa
 
 Agradeço imensamente a atenção e o interesse em acompanhar o projeto Mario API REST. Este trabalho é fruto de dedicação contínua e aprendizado prático, e representa mais do que uma aplicação funcional — é também um passo concreto na jornada de evolução como desenvolvedor.
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:6fa8dc,100:6fa8dc&height=80&section=footer&text=✨Com%20grandes%20poderes%20de%20cria%C3%A7%C3%A3o%20v%C3%AAm%20grandes%20blocos%20de%20responsabilidade.%20-%20Mario,%20o%20Encanador%20Arquiteto%20de%20APIs!✨&fontSize=14&textColor=ffffff&fontAlign=center&fontAlignY=middle"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:6fa8dc,100:6fa8dc&height=115&section=footer&text=✨Com%20grandes%20poderes%20de%20cria%C3%A7%C3%A3o%20v%C3%AAm%20grandes%20blocos%20de%20responsabilidade.%20-%20Mario,%20o%20Encanador%20Arquiteto%20de%20APIs!✨&fontSize=14&textColor=ffffff&fontAlign=center&fontAlignY=middle"/>
 
