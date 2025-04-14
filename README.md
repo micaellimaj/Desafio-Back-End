@@ -7,8 +7,11 @@ No Reino dos Cogumelos, os criadores de fases se tornaram os novos heróis. Com 
 
 Cada criador pode trabalhar de forma independente ou formar equipes criativas, onde compartilham itens, ideias e testam suas fases antes de publicá-las. A plataforma traz um sistema de autenticação, segurança e organização dos dados para garantir a melhor experiência aos fãs e desenvolvedores do Marioverse.
 
+🧱 [Segue link de uma documentação mais detalhada de todo o projeto](https://drive.google.com/drive/folders/1nLquFyPt_ATIwbUfIZOvkSwFpQxcCZzv?usp=sharing) 🧱 
+
 ## <img src="https://cdn3.emoji.gg/emojis/7853-mariobros-bowsersorry.gif" alt="Descrição" width="35" height="35" /> Estrutura do Projeto:
-![Estrutura_Projeto](Imagens/Readme/)
+
+![Estrutura_Projeto](Imagens/Readme/Mario_Maker_Arquitetura.gif)
 
 ## <img src="https://cdn3.emoji.gg/emojis/6861-luigidance.gif" alt="Coin" width="45" height="45" />Objetivo: 
 
@@ -35,11 +38,29 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
 </div>
 
 ## <img src="https://cdn3.emoji.gg/emojis/9475-mariobros-toadhug.gif" alt="Coin" width="35" height="35" /> Relações do Banco de dados:
+![Estrutura_Projeto](Imagens/Readme/Diagrama.png)
 
+### <img src="https://cdn3.emoji.gg/emojis/1888-mk-mushroom.png" alt="Coin" width="20" height="20" /> Entidades Principais:
+
+| Modelo  | Descrição               | Campos Importantes                     |
+|---------|-------------------------|----------------------------------------|
+| `User`  | Criadores de fases      | id, username, email, password         |
+| `Team`  | Equipes criativas       | id, name                               |
+| `Item`  | Elementos das fases     | id, name, description, image_url       |
+| `Player`| Personagens testadores  | id, name, team_id, image_url           |
+| `Tag`   | Categorias de itens     | id, name                               |
+
+### <img src="https://cdn3.emoji.gg/emojis/1888-mk-mushroom.png" alt="Coin" width="20" height="20" /> Tabelas de Relacionamento:
+
+| Tabela       | Relação         | Campos Especiais                      |
+|--------------|-----------------|---------------------------------------|
+| `team_user`  | User ↔ Team     | relation_type (CREATOR/COLLABORATOR)  |
+| `item_tag`   | Item ↔ Tag      | -                                     |
+| `item_user`  | Item ↔ User     | relation_type (ex: RESPONSIBLE)       |
 
 ## <img src="https://cdn3.emoji.gg/emojis/8155-mariobros-yoshihungry.gif" alt="Coin" width="35" height="35" /> Etapas do Projeto:
 
-1️. **Planejamento & Arquitetura**:
+### <img src="https://cdn3.emoji.gg/emojis/9266-mk-bullet.png" alt="Coin" width="20" height="20" /> Planejamento & Arquitetura:
 
 * Definição das entidades e relacionamentos (diagrama ER).
 * Escolha das tecnologias:
@@ -47,7 +68,7 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
   * Autenticação: JWT + bcrypt.
   * Uploads: Multer.
   
-2️. **Implementação**:
+### <img src="https://cdn3.emoji.gg/emojis/9266-mk-bullet.png" alt="Coin" width="20" height="20" /> Implementação:
 
 * Autenticação:
   * Rotas de /register e /login com validação Joi.
@@ -70,27 +91,27 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
 * Players
   * CRUD + vínculo com Teams.
 
-3️. **Validação & Testes**:
+### <img src="https://cdn3.emoji.gg/emojis/9266-mk-bullet.png" alt="Coin" width="20" height="20" /> **Validação & Testes**:
 
 * Testes no Postman para todas as rotas.
 
 ## <img src="https://cdn3.emoji.gg/emojis/9271-mariobros-donkeykongfire.gif" alt="Coin" width="35" height="35" /> Como Instalar e Executar o Projeto:
 
-1. **Pré-requisitos**:
+### <img src="https://cdn3.emoji.gg/emojis/4673-m-fire-flower.png" alt="Coin" width="20" height="20" /> Pré-requisitos:
 * Antes de iniciar, certifique-se de ter instalado:
 * Node.js (versão 16 ou superior)
 * npm ou yarn
 * Git
 * SQLite (para banco de dados local)
 
-2. **Clonando o repositório**:
+### <img src="https://cdn3.emoji.gg/emojis/4673-m-fire-flower.png" alt="Coin" width="20" height="20" /> Clonando o repositório:
 * bash:
 ```
 git clone https://github.com/micaellimaj/Desafio-Back-End
 cd projeto
 ```
 
-3. **Instalando as dependências**:
+### <img src="https://cdn3.emoji.gg/emojis/4673-m-fire-flower.png" alt="Coin" width="20" height="20" /> Instalando as dependências:
 * bash
 ```
 npm install
@@ -98,7 +119,7 @@ npm install
 yarn install
 ```
 
-4. **Configuração do ambiente**:
+### <img src="https://cdn3.emoji.gg/emojis/4673-m-fire-flower.png" alt="Coin" width="20" height="20" /> Configuração do ambiente:
 * Crie um arquivo .env na raiz do projeto com:
   * env:
 ```
@@ -108,7 +129,7 @@ PORT=3000
 UPLOADS_DIR=./uploads
 ```
 
-5. **Executando o projeto**:
+### <img src="https://cdn3.emoji.gg/emojis/4673-m-fire-flower.png" alt="Coin" width="20" height="20" /> Executando o projeto:
 * bash:
 ```
 npm start
@@ -116,7 +137,7 @@ npm start
 npm run dev
 ```
 
-6. **Acessando a API**:
+### <img src="https://cdn3.emoji.gg/emojis/4673-m-fire-flower.png" alt="Coin" width="20" height="20" /> Acessando a API:
 * O servidor estará disponível em:
 ```
 http://localhost:3000
@@ -177,30 +198,76 @@ Authorization: Bearer seu_token_aqui
 
 ## <img src="https://cdn3.emoji.gg/emojis/7673-mariobros-peachsmile.gif" alt="Coin" width="35" height="35" /> Organização dos Diretórios:
 
+
+### <img src="https://cdn3.emoji.gg/emojis/5420-mk-triple-green-shell.png" alt="Coin" width="20" height="20" /> Todas as pastas:
 ```
-mario-maker-api/
+DESAFIO-BACK-END/
 ├── src/
-│   ├── controllers/
-│   │   ├── authController.js
-│   │   ├── itemController.js
-│   │   └── ... (outros controllers)
-│   ├── models/
-│   │   ├── User.js
-│   │   ├── Team.js
-│   │   └── ... (outros models)
-│   ├── routes/
-│   │   ├── authRoutes.js
-│   │   ├── teamRoutes.js
-│   │   └── ... (outras rotas)
-│   ├── middlewares/
-│   │   └── auth.js
-│   └── database/
-│       └── index.js
-├── uploads/          # Armazena imagens dos itens
-├── config.json       # Configurações do Sequelize
-├── server.js         # Ponto de entrada
-└── time.db           # Arquivo do SQLite
+│ ├── controllers/
+│ │ ├── authController.js         # Lógica de autenticação (login/registro)
+│ │ ├── itemController.js         # CRUD de itens + upload de imagens
+│ │ ├── playerController.js       # Gerenciamento de personagens
+│ │ ├── teamController.js         # Operações com equipes
+│ │ └── userController.js         # Gestão de usuários
+│ │
+│ ├── models/
+│ │ ├── User.js                   # Modelo de usuários (criadores)
+│ │ ├── Team.js                   # Modelo de equipes
+│ │ ├── Item.js                   # Modelo de itens das fases
+│ │ ├── Player.js                 # Modelo de personagens
+│ │ ├── Tag.js                    # Modelo de categorias
+│ │ ├── ItemTag.js                # Tabela de relação Item-Tag (N:N)
+│ │ ├── ItemUser.js               # Tabela de relação Item-User (N:N)
+│ │ ├── TeamUser.js               # Tabela de relação Team-User (N:N)
+│ │ └── index.js                  # Exportação centralizada dos modelos
+│ │
+│ ├── routes/
+│ │ ├── authRoutes.js             # Rotas de autenticação
+│ │ ├── itemRoutes.js             # Rotas de itens (com upload)
+│ │ ├── playerRoutes.js           # Rotas de personagens
+│ │ ├── teamRoutes.js             # Rotas de equipes
+│ │ ├── userRoutes.js             # Rotas de usuários
+│ │ └── tagRoutes.js              # Rotas da tag
+│ │
+│ ├── middlewares/
+│ │ └── auth.js                   # Middleware de autenticação JWT
+│ │
+│ └── database/
+│ └── index.js                    # Configuração do Sequelize e conexão com DB
+│
+├── uploads/                      # Armazena imagens enviadas (itens)
+├── config/
+│ ├── config.json                 # Configurações do Sequelize por ambiente
+│ └── db.js                       # Configurações adicionais do banco
+│
+├── middlewares/
+│ └── auth.js                     # Middleware de autenticação
+│
+├── app.js                        # Configuração principal do Express
+├── server.js                     # Ponto de entrada da aplicação
+├── package.json                  # Dependências e scripts do projeto
+├── package-lock.json             # Versões exatas das dependências
+├── time.db                       # Arquivo do banco SQLite
+├── .env                          # Variáveis de ambiente (JWT_SECRET, etc)
+├── .gitignore                    # Arquivos ignorados pelo Git
+└── README.md                     # Documentação do projeto
 ```
+### <img src="https://cdn3.emoji.gg/emojis/5420-mk-triple-green-shell.png" alt="Coin" width="20" height="20" /> Arquivos Críticos:
+
+| Arquivo               | Função                                                                 |
+|-----------------------|-----------------------------------------------------------------------|
+| `server.js`           | Inicializa o servidor e conecta ao banco                              |
+| `app.js`              | Configura middlewares globais (CORS, JSON, uploads)                   |
+| `config/db.js`        | Configuração detalhada da conexão com o banco                         |
+| `database/index.js`   | Centraliza modelos e associações do Sequelize                         |
+| `middlewares/auth.js` | Valida tokens JWT para rotas protegidas                               |
+
+### <img src="https://cdn3.emoji.gg/emojis/5420-mk-triple-green-shell.png" alt="Coin" width="20" height="20" /> Destaques:
+
+* Estrutura MVC clara (Models-Views-Controllers)
+* Uploads gerenciados pelo Multer (pasta `/uploads`)
+* Relacionamentos complexos via tabelas intermediárias
+* Configuração por ambiente (dev/test/prod)
 
 ## <img src="https://cdn3.emoji.gg/emojis/1094-mariobros-luigicry.gif" alt="Coin" width="35" height="35" />  Conclusão:
 
@@ -212,5 +279,5 @@ Além disso, a integração do multer para upload de arquivos, o uso de middlewa
 
 Agradeço imensamente a atenção e o interesse em acompanhar o projeto Mario API REST. Este trabalho é fruto de dedicação contínua e aprendizado prático, e representa mais do que uma aplicação funcional — é também um passo concreto na jornada de evolução como desenvolvedor.
 
-"Com grandes poderes de criação vêm grandes blocos de responsabilidade." – Mario, o Encanador Arquiteto de APIs
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:6fa8dc,100:6fa8dc&height=115&section=footer&text=✨Com%20grandes%20poderes%20de%20cria%C3%A7%C3%A3o%20v%C3%AAm%20grandes%20blocos%20de%20responsabilidade.%20-%20Mario,%20o%20Encanador%20Arquiteto%20de%20APIs!✨&fontSize=14&textColor=ffffff&fontAlign=center&fontAlignY=middle"/>
 
