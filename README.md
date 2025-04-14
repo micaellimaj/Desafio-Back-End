@@ -95,21 +95,21 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
 
 ## <img src="https://cdn3.emoji.gg/emojis/9271-mariobros-donkeykongfire.gif" alt="Coin" width="35" height="35" /> Como Instalar e Executar o Projeto:
 
-1. **Pré-requisitos**:
+### <img src="https://cdn3.emoji.gg/emojis/4673-m-fire-flower.png" alt="Coin" width="20" height="20" /> Pré-requisitos:
 * Antes de iniciar, certifique-se de ter instalado:
 * Node.js (versão 16 ou superior)
 * npm ou yarn
 * Git
 * SQLite (para banco de dados local)
 
-2. **Clonando o repositório**:
+### <img src="https://cdn3.emoji.gg/emojis/4673-m-fire-flower.png" alt="Coin" width="20" height="20" /> Clonando o repositório:
 * bash:
 ```
 git clone https://github.com/micaellimaj/Desafio-Back-End
 cd projeto
 ```
 
-3. **Instalando as dependências**:
+### <img src="https://cdn3.emoji.gg/emojis/4673-m-fire-flower.png" alt="Coin" width="20" height="20" /> Instalando as dependências:
 * bash
 ```
 npm install
@@ -117,7 +117,7 @@ npm install
 yarn install
 ```
 
-4. **Configuração do ambiente**:
+### <img src="https://cdn3.emoji.gg/emojis/4673-m-fire-flower.png" alt="Coin" width="20" height="20" /> Configuração do ambiente:
 * Crie um arquivo .env na raiz do projeto com:
   * env:
 ```
@@ -127,7 +127,7 @@ PORT=3000
 UPLOADS_DIR=./uploads
 ```
 
-5. **Executando o projeto**:
+### <img src="https://cdn3.emoji.gg/emojis/4673-m-fire-flower.png" alt="Coin" width="20" height="20" /> Executando o projeto:
 * bash:
 ```
 npm start
@@ -135,7 +135,7 @@ npm start
 npm run dev
 ```
 
-6. **Acessando a API**:
+### <img src="https://cdn3.emoji.gg/emojis/4673-m-fire-flower.png" alt="Coin" width="20" height="20" /> Acessando a API:
 * O servidor estará disponível em:
 ```
 http://localhost:3000
