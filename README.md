@@ -8,7 +8,8 @@ No Reino dos Cogumelos, os criadores de fases se tornaram os novos heróis. Com 
 Cada criador pode trabalhar de forma independente ou formar equipes criativas, onde compartilham itens, ideias e testam suas fases antes de publicá-las. A plataforma traz um sistema de autenticação, segurança e organização dos dados para garantir a melhor experiência aos fãs e desenvolvedores do Marioverse.
 
 ## <img src="https://cdn3.emoji.gg/emojis/7853-mariobros-bowsersorry.gif" alt="Descrição" width="35" height="35" /> Estrutura do Projeto:
-![Estrutura_Projeto](Imagens/Readme/)
+
+![Estrutura_Projeto](Imagens/Readme/Mario_Maker_Arquitetura.gif)
 
 ## <img src="https://cdn3.emoji.gg/emojis/6861-luigidance.gif" alt="Coin" width="45" height="45" />Objetivo: 
 
@@ -35,7 +36,25 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
 </div>
 
 ## <img src="https://cdn3.emoji.gg/emojis/9475-mariobros-toadhug.gif" alt="Coin" width="35" height="35" /> Relações do Banco de dados:
+![Estrutura_Projeto](Imagens/Readme/Diagrama.png)
 
+### Entidades Principais:
+
+| Modelo  | Descrição               | Campos Importantes                     |
+|---------|-------------------------|----------------------------------------|
+| `User`  | Criadores de fases      | id, username, email, password         |
+| `Team`  | Equipes criativas       | id, name                               |
+| `Item`  | Elementos das fases     | id, name, description, image_url       |
+| `Player`| Personagens testadores  | id, name, team_id, image_url           |
+| `Tag`   | Categorias de itens     | id, name                               |
+
+### Tabelas de Relacionamento:
+
+| Tabela       | Relação         | Campos Especiais                      |
+|--------------|-----------------|---------------------------------------|
+| `learn_user` | User ↔ Team     | relation_type (CREATOR/COLLABORATOR)  |
+| `item_tag`   | Item ↔ Tag      | -                                     |
+| `item_user`  | Item ↔ User     | relation_type (ex: RESPONSIBLE)       |
 
 ## <img src="https://cdn3.emoji.gg/emojis/8155-mariobros-yoshihungry.gif" alt="Coin" width="35" height="35" /> Etapas do Projeto:
 
