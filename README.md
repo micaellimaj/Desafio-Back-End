@@ -52,7 +52,7 @@ Criar uma REST API com autenticação JWT que possibilite o gerenciamento comple
 
 | Tabela       | Relação         | Campos Especiais                      |
 |--------------|-----------------|---------------------------------------|
-| `learn_user` | User ↔ Team     | relation_type (CREATOR/COLLABORATOR)  |
+| `team_user`  | User ↔ Team     | relation_type (CREATOR/COLLABORATOR)  |
 | `item_tag`   | Item ↔ Tag      | -                                     |
 | `item_user`  | Item ↔ User     | relation_type (ex: RESPONSIBLE)       |
 
