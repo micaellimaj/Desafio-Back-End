@@ -279,5 +279,5 @@ Agradeço imensamente a atenção e o interesse em acompanhar o projeto Mario AP
 
 "Com grandes poderes de criação vêm grandes blocos de responsabilidade." – Mario, o Encanador Arquiteto de APIs
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:6fa8dc,100:6fa8dc&height=80&section=footer&text=Com%20grandes%20poderes%20de%20cria%C3%A7%C3%A3o%20v%C3%AAm%20grandes%20blocos%20de%20responsabilidade.%20-%20Mario,%20o%20Encanador%20Arquiteto%20de%20APIs!&fontSize=16&textColor=ffffff&fontAlign=center&fontAlignY=middle"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:6fa8dc,100:6fa8dc&height=80&section=footer&text=✨Com%20grandes%20poderes%20de%20cria%C3%A7%C3%A3o%20v%C3%AAm%20grandes%20blocos%20de%20responsabilidade.%20-%20Mario,%20o%20Encanador%20Arquiteto%20de%20APIs!✨&fontSize=14&textColor=ffffff&fontAlign=center&fontAlignY=middle"/>
 
