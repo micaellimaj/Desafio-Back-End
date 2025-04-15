@@ -142,7 +142,7 @@ npm run dev
 ```
 http://localhost:3000
 ```
-## <img src="https://cdn3.emoji.gg/emojis/4332-mariobros-toadmusic2.gif" alt="Coin" width="35" height="35" /> Demostração no Postman:
+## <img src="https://cdn3.emoji.gg/emojis/4332-mariobros-toadmusic2.gif" alt="Coin" width="35" height="35" /> Demonstração no Postman:
 
 ![visualizacao](Imagens/Readme/Demonstracao_API.gif)
 
